@@ -1,0 +1,35 @@
+#!/bin/sh
+
+REPO=$1
+FOLDER=$2
+
+[ -z "$1" ] && echo "Usage: `basename $0` <repo>" && exit -1
+
+[ -z "$2" ] && FOLDER=""
+
+
+pushd ~/
+mkdir -p $FOLDER &> /dev/null
+
+export VCSH_BASE=~/$FOLDER
+
+EXCLUDEFILE=$VCSH_BASE/.vcsh_${REPO}_exclude
+
+vcsh init $REPO || exit 1
+vcsh $REPO remote add origin /home/jerry/cloud/remote/kinnalru@yandex/repos/${REPO}.git || exit 1
+vcsh $REPO fetch origin || exit 1
+vcsh run $REPO gitcrypt init || exit 1
+
+touch $EXCLUDEFILE || exit 1
+vcsh $REPO config core.excludesfile $EXCLUDEFILE || exit 1
+vcsh $REPO add $EXCLUDEFILE || exit 1
+
+for x in `vcsh $REPO ls-tree --name-only --full-tree -r origin/master`; do
+	vcsh $REPO add $x 2> /dev/null
+done
+
+vcsh $REPO commit -m "initial" || exit 1
+vcsh $REPO branch --set-upstream-to=origin/master master || exit 1
+vcsh $REPO merge origin/master
+
+popd
