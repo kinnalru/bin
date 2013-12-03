@@ -290,7 +290,9 @@ run() {
 	hook pre-run
 	use
 	"$@"
+	RET=$?
 	hook post-run
+	return $RET
 }
 
 status() {
@@ -395,7 +397,6 @@ elif [ "$1" = 'delete' ]           ||
      [ "$1" = 'list-tracked-by' ]  ||
      [ "$1" = 'rename' ]           ||
      [ "$1" = 'run' ]              ||
-     [ "$1" = 'crypt' ]            ||
      [ "$1" = 'upgrade' ]          ||
      [ "$1" = 'write-gitignore' ]; then
 	[ -z $2 ]                      && fatal "$1: please specify repository to work on" 1
@@ -458,11 +459,8 @@ check_dir "$VCSH_REPO_D"
 verbose "$VCSH_COMMAND begin"
 export VCSH_COMMAND=$(echo $VCSH_COMMAND | sed 's/-/_/g')
 hook pre-command
-if [ "$VCSH_COMMAND" = 'crypt' ]; then
-	echo -n "Enter password:"
-	read PASS && echo -e "n\n0\nn\n${PASS}\n\Y\n*\n" | gitcrypt init
-else
-	$VCSH_COMMAND "$@"
-fi
+$VCSH_COMMAND "$@"
+RET=$?
 hook post-command
 verbose "$VCSH_COMMAND end, exiting"
+exit $RET

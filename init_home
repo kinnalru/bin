@@ -34,8 +34,8 @@ for x in `vcsh $REPO ls-tree --name-only --full-tree -r origin/master`; do
 	vcsh $REPO add $x 2> /dev/null
 done
 
-iam="$(echo `whoami`@`hostname`)"
-iam="$iam ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | head -n 1)"
+user="$(echo `whoami`@`hostname`)"
+iam="$user ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | head -n 1)"
 vcsh $REPO commit -m "initial from $iam" || exit 1
 vcsh $REPO branch --set-upstream-to=origin/master master || exit 1
 vcsh $REPO merge origin/master -m "Merged: initial from $iam"
