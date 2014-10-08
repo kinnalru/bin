@@ -10,9 +10,4 @@ if [ ! -f ~/.ssh/id_rsa ]; then
 	echo "$file" | $SECURE_BIN decrypt - ~/.ssh/id_rsa || exit 1
 fi
 
-exit 0
-
-
-export INIT_BIN=`export PATH="$PWD:$PATH"; which vcsh_init`
-
 $INIT_BIN "home" "" "https://github.com/kinnalru/bin.git" || exit 1
