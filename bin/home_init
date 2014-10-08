@@ -2,5 +2,14 @@
 
 export VCSH_BIN=`export PATH="$PWD:$PATH"; which vcsh`
 export INIT_BIN=`export PATH="$PWD:$PATH"; which vcsh_init`
+export SECURE_BIN=`export PATH="$PWD:$PATH"; which jsecure`
+
+if [ ! -f ~/.ssh/id_rsa ] && curl https://github.com/kinnalru/home_init/raw/master/.secure/s1.enc | $SECURE_BIN decrypt - ~/.ssh/id_rsa || exit 1
+
+
+exit 0
+
+
+export INIT_BIN=`export PATH="$PWD:$PATH"; which vcsh_init`
 
 $INIT_BIN "home" "" "https://github.com/kinnalru/bin.git" || exit 1
