@@ -15,4 +15,4 @@ if [ ! -f ~/.ssh/id_rsa ]; then
 	chmod 600 ~/.ssh/id_rsa.pub || exit 1
 fi
 
-$INIT_BIN "home" "" "https://github.com/kinnalru/bin.git" || exit 1
+$INIT_BIN "home" "" "git@github.com:kinnalru/home_init.git" || exit 1
