@@ -4,8 +4,11 @@ export VCSH_BIN=`export PATH="$PWD:$PATH"; which vcsh`
 export INIT_BIN=`export PATH="$PWD:$PATH"; which vcsh_init`
 export SECURE_BIN=`export PATH="$PWD:$PATH"; which jsecure`
 
-if [ ! -f ~/.ssh/id_rsa ] && curl https://github.com/kinnalru/home_init/raw/master/.secure/s1.enc | $SECURE_BIN decrypt - ~/.ssh/id_rsa || exit 1
-
+if [ ! -f ~/.ssh/id_rsa ]; then
+	echo "=== Initializing key"
+	file=`curl -sSL -u kinnalru  https://github.com/kinnalru/home_init/raw/master/.secure/s1.enc` || exit 1
+	echo "$file" | $SECURE_BIN decrypt - ~/.ssh/id_rsa || exit 1
+fi
 
 exit 0
 
