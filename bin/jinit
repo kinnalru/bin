@@ -8,6 +8,12 @@ if [ ! -f ~/.ssh/id_rsa ]; then
 	echo "=== Initializing key"
 	file=`curl -sSL -u kinnalru  https://github.com/kinnalru/home_init/raw/master/.secure/s1.enc` || exit 1
 	echo "$file" | $SECURE_BIN decrypt - ~/.ssh/id_rsa || exit 1
+	chmod 600 ~/.ssh/id_rsa || exit 1
+
+	ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub || exit 1
+	pub=`cat ~/.ssh/id_rsa.pub | head -n 1`" kinnalru@gmail.com"
+	echo $pub > ~/.ssh/id_rsa.pub
+	chmod 600 ~/.ssh/id_rsa.pub || exit 1
 fi
 
 $INIT_BIN "home" "" "https://github.com/kinnalru/bin.git" || exit 1
