@@ -1,59 +1,6 @@
 #!/bin/sh
 
-
 export VCSH_BIN=`export PATH="$PWD:$PATH"; which vcsh`
+export INIT_BIN=`export PATH="$PWD:$PATH"; which vcsh_init`
 
-pushd ~/
-export VCSH_BASE=`pwd`
-
-$VCSH_BIN init home || exit 1
-$VCSH_BIN home remote add origin https://github.com/kinnalru/bin.git || exit 1
-$VCSH_BIN home fetch origin || exit 1
-
-
-echo "=== Initializing repository in $PWD"
-for x in `vcsh home ls-tree --name-only --full-tree -r origin/master`; do
-	$VCSH_BIN home add $PWD/$x 2> /dev/null && echo "  * adding $PWD/$x in repository"
-done
-
-exit 0
-
-REPO=$1
-FOLDER=$2
-
-
-[ -z "$2" ] && FOLDER=""
-
-
-pushd ~/
-mkdir -p $FOLDER &> /dev/null
-
-
-EXCLUDEFILE=$VCSH_BASE/.vcsh_${REPO}_exclude
-ATTRFILE=$VCSH_BASE/.vcsh_${REPO}_attr
-
-vcsh init $REPO || exit 1
-vcsh $REPO remote add origin /home/jerry/cloud/remote/kinnalru@yandex/repos/${REPO}.git || exit 1
-vcsh $REPO fetch origin || exit 1
-vcsh run $REPO gitcrypt init || exit 1
-
-touch $EXCLUDEFILE || exit 1
-touch $ATTRFILE || exit 1
-
-vcsh $REPO config core.excludesfile $EXCLUDEFILE || exit 1
-vcsh $REPO config core.attributesfile $ATTRFILE || exit 1
-
-vcsh $REPO add $EXCLUDEFILE || exit 1
-vcsh $REPO add $ATTRFILE || exit 1
-
-for x in `vcsh $REPO ls-tree --name-only --full-tree -r origin/master`; do
-	vcsh $REPO add $x 2> /dev/null
-done
-
-user="$(echo `whoami`@`hostname`)"
-iam="$user ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | head -n 1)"
-vcsh $REPO commit -m "initial from $iam" || exit 1
-vcsh $REPO branch --set-upstream-to=origin/master master || exit 1
-vcsh $REPO merge origin/master -m "Merged: initial from $iam"
-
-popd
+$INIT_BIN "home" "" "https://github.com/kinnalru/bin.git" || exit 1
