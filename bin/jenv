@@ -1,0 +1,11 @@
+#!/bin/env bash
+
+file=~/.cron/env
+> $file
+echo "XDG_SESSION_COOKIE=$XDG_SESSION_COOKIE" >> $file
+echo "XDM_MANAGED=$XDM_MANAGED" >> $file
+echo "KDE_SESSION_VERSION=$KDE_SESSION_VERSION" >> $file
+echo "DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS" >> $file
+echo "SSH_AGENT_PID=$SSH_AGENT_PID" >> $file
+echo "SSH_AUTH_SOCK=$SSH_AUTH_SOCK" >> $file
+echo "DISPLAY=$DISPLAY" >> $file
