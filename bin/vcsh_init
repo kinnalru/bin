@@ -16,6 +16,7 @@ mkdir -p $DIR &> /dev/null
 export VCSH_BASE=$PWD/$DIR
 pushd $VCSH_BASE &> /dev/null || exit 1
 
+KEEPFILE=$VCSH_BASE/.vcsh_${REPO}_keep
 EXCLUDEFILE=$VCSH_BASE/.vcsh_${REPO}_exclude
 ATTRFILE=$VCSH_BASE/.vcsh_${REPO}_attr
 
@@ -25,17 +26,11 @@ $VCSH_BIN init $REPO || exit 1
 $VCSH_BIN $REPO remote add origin $REPO_URL || exit 1
 $VCSH_BIN $REPO fetch origin || exit 1
 
-echo "  * adding $EXCLUDEFILE"
-touch $EXCLUDEFILE || exit 1
 
-echo "  * adding $ATTRFILE"
-touch $ATTRFILE || exit 1
+echo "  * adding $KEEPFILE"
+touch "$KEEPFILE" || exit 1
 
-$VCSH_BIN $REPO config core.excludesfile $EXCLUDEFILE || exit 1
-$VCSH_BIN $REPO config core.attributesfile $ATTRFILE || exit 1
-
-$VCSH_BIN $REPO add $EXCLUDEFILE || exit 1
-$VCSH_BIN $REPO add $ATTRFILE || exit 1
+$VCSH_BIN $REPO add "$KEEPFILE" || exit 1
 
 for x in `vcsh $REPO ls-tree --name-only --full-tree -r origin/master`; do
 	echo -n "  * adding $PWD/$x to repository"
@@ -49,6 +44,21 @@ iam="$user ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | he
 $VCSH_BIN $REPO commit -m "initial from $iam" || exit 1
 $VCSH_BIN $REPO branch --set-upstream-to=origin/master master || exit 1
 $VCSH_BIN $REPO merge origin/master -m "Merged: initial from $iam"
+
+if [ ! -f $EXCLUDEFILE ]; then
+	echo "  * adding $EXCLUDEFILE"
+	touch $EXCLUDEFILE || exit 1
+	$VCSH_BIN $REPO config core.excludesfile $EXCLUDEFILE || exit 1
+	$VCSH_BIN $REPO add $EXCLUDEFILE || exit 1
+fi
+
+if [ ! -f $ATTRFILE ]; then
+	echo "  * adding $ATTRFILE"
+	touch $ATTRFILE || exit 1
+	$VCSH_BIN $REPO config core.attributesfile $ATTRFILE || exit 1
+	$VCSH_BIN $REPO add $ATTRFILE || exit 1
+fi
+
 
 popd &> /dev/null || exit 1
 popd &> /dev/null || exit 1
