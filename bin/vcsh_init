@@ -40,6 +40,7 @@ done
 
 user="$(echo `whoami`@`hostname`)"
 iam="$user ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | head -n 1)"
+$VCSH_BIN $REPO config user.iam "$iam"
 
 $VCSH_BIN $REPO commit -m "initial from $iam" || exit 1
 $VCSH_BIN $REPO branch --set-upstream-to=origin/master master || exit 1
