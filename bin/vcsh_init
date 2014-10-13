@@ -23,28 +23,23 @@ ATTRFILE=$VCSH_BASE/.vcsh_${REPO}_attr
 echo "=== Initializing repository in $PWD"
 
 $VCSH_BIN init $REPO || exit 1
+user="$(echo `whoami`@`hostname`)"
+iam="$user ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | head -n 1)"
+$VCSH_BIN $REPO config user.iam "$iam"
+
 $VCSH_BIN $REPO remote add origin $REPO_URL || exit 1
 $VCSH_BIN $REPO fetch origin || exit 1
-
+$VCSH_BIN $REPO branch --set-upstream-to=origin/master master || exit 1
 
 echo "  * adding $KEEPFILE"
 touch "$KEEPFILE" || exit 1
 
 $VCSH_BIN $REPO add "$KEEPFILE" || exit 1
 
-for x in `vcsh $REPO ls-tree --name-only --full-tree -r origin/master`; do
-	echo -n "  * adding $PWD/$x to repository"
-	$VCSH_BIN ${REPO} add $PWD/$x 2> /dev/null || echo -n " -SKIP-"
-	echo ""
-done
+vcsh_merge "$REPO" "origin/master" "Initial"
 
-user="$(echo `whoami`@`hostname`)"
-iam="$user ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | head -n 1)"
-$VCSH_BIN $REPO config user.iam "$iam"
+$VCSH_BIN $REPO merge "${BRANCH}" -m "Merged initial by $iam" || exit 1
 
-$VCSH_BIN $REPO commit -m "initial from $iam" || exit 1
-$VCSH_BIN $REPO branch --set-upstream-to=origin/master master || exit 1
-$VCSH_BIN $REPO merge origin/master -m "Merged: initial from $iam"
 if [ ! -f $EXCLUDEFILE ]; then
 	echo "  * adding $EXCLUDEFILE"
 	touch $EXCLUDEFILE || exit 1
