@@ -1,0 +1,13 @@
+[
+  {
+    "caption": "Git: Graph Log",
+    "command": "git_custom",
+    "args": {
+        "cmd": "gra",
+        "output": "view",
+        "async": false,
+        "syntax": "Packages/User/syntax/Git Graph.tmLanguage"
+    }
+  },
+]
+

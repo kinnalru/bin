@@ -1,8 +1,11 @@
 {
 	"installed_packages":
 	[
-		"Alternative Autocompletion",
-		"ColorPicker",
-		"RubyTest"
+		"CTags",
+		"GitGutter",
+		"PackageResourceViewer",
+		"Ruby Slim",
+		"SublimeGit",
+		"Vintageous"
 	]
 }
