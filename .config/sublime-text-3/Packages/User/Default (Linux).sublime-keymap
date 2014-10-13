@@ -1,0 +1,42 @@
+[
+	{ "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false} , "context":
+		[
+			{ "key": "setting.is_widget", "operand": true },
+		]
+	},
+  { "keys": ["k"], "command": "move", "args": {"by": "lines", "forward": false} , "context":
+    [
+      { "key": "control", "operand": "sidebar_tree" },
+    ]
+  },
+
+  { "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true} , "context":
+    [
+      { "key": "setting.is_widget", "operand": true },
+    ]
+  },
+  { "keys": ["j"], "command": "move", "args": {"by": "lines", "forward": true} , "context":
+    [
+      { "key": "control", "operand": "sidebar_tree" },
+    ]
+  },
+
+  { "keys": ["h"], "command": "move", "args": {"by": "characters", "forward": false} , "context":
+    [
+      { "key": "control", "operand": "sidebar_tree" },
+    ]
+  },
+  
+  { "keys": ["l"], "command": "move", "args": {"by": "characters", "forward": true} , "context":
+    [
+      { "key": "control", "operand": "sidebar_tree" },
+    ]
+  },
+
+  { "keys": ["ctrl+alt+o"], "command": "show_overlay", "args": {"overlay": "goto", "show_files": true} },
+  { "keys": ["alt+enter"], "command": "next_result" },
+
+  { "keys": ["ctrl+d"], "command": "toggle_comment", "args": { "block": false } },
+  { "keys": ["ctrl+tab"], "command": "next_view" },
+	
+]

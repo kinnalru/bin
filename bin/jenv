@@ -1,0 +1,12 @@
+#!/bin/env bash
+
+file=~/.cron/env
+> $file
+echo "export XDG_SESSION_COOKIE=\"$XDG_SESSION_COOKIE\"" >> $file
+echo "export XDM_MANAGED=\"$XDM_MANAGED\"" >> $file
+echo "export KDE_SESSION_VERSION=\"$KDE_SESSION_VERSION\"" >> $file
+echo "export DBUS_SESSION_BUS_ADDRESS=\"$DBUS_SESSION_BUS_ADDRESS\"" >> $file
+echo "export SSH_AGENT_PID=\"$SSH_AGENT_PID\"" >> $file
+echo "export SSH_AUTH_SOCK=\"$SSH_AUTH_SOCK\"" >> $file
+echo "export SSH_ASKPASS=\"$SSH_ASKPASS\"" >> $file
+echo "export DISPLAY=\"$DISPLAY\"" >> $file

@@ -1,0 +1,60 @@
+#!/bin/sh
+
+[ -z "$VCSH_BIN" ] && export VCSH_BIN=`which vcsh`
+[ -z "$VCSH_MERGE" ] && export VCSH_MERGE=`which vcsh_merge`
+
+REPO=$1
+DIR=$2
+REPO_URL=$3
+
+
+[ -z "$1" ] && echo "Usage: `basename $0` <repo> [dir]" && exit -1
+[ -z "$2" ] && DIR=""
+
+pushd ~/ &> /dev/null || exit 1
+mkdir -p $DIR &> /dev/null
+
+export VCSH_BASE=$PWD/$DIR
+pushd $VCSH_BASE &> /dev/null || exit 1
+
+KEEPFILE=$VCSH_BASE/.vcsh_${REPO}_keep
+EXCLUDEFILE=$VCSH_BASE/.vcsh_${REPO}_exclude
+ATTRFILE=$VCSH_BASE/.vcsh_${REPO}_attr
+
+echo "=== Initializing repository in $PWD"
+
+$VCSH_BIN init $REPO || exit 1
+user="$(echo `whoami`@`hostname`)"
+iam="$user ip: $(ifconfig | grep inet | sed s/^.*inet\ // | cut -d " " -f 1 | head -n 1)"
+$VCSH_BIN $REPO config user.iam "$iam"
+
+$VCSH_BIN $REPO remote add origin $REPO_URL || exit 1
+$VCSH_BIN $REPO fetch origin || exit 1
+
+echo "  * adding $KEEPFILE"
+touch "$KEEPFILE" || exit 1
+
+$VCSH_BIN $REPO add "$KEEPFILE" || exit 1
+
+$VCSH_MERGE "$REPO" "origin/master" "Initial"
+$VCSH_BIN $REPO branch --set-upstream-to=origin/master master || exit 1
+$VCSH_BIN $REPO merge origin/master -m "Merged initial by $iam" || exit 1
+
+if [ ! -f $EXCLUDEFILE ]; then
+	echo "  * adding $EXCLUDEFILE"
+	touch $EXCLUDEFILE || exit 1
+	$VCSH_BIN $REPO config core.excludesfile $EXCLUDEFILE || exit 1
+	$VCSH_BIN $REPO add $EXCLUDEFILE || exit 1
+fi
+
+if [ ! -f $ATTRFILE ]; then
+	echo "  * adding $ATTRFILE"
+	touch $ATTRFILE || exit 1
+	$VCSH_BIN $REPO config core.attributesfile $ATTRFILE || exit 1
+	$VCSH_BIN $REPO add $ATTRFILE || exit 1
+fi
+
+
+
+popd &> /dev/null || exit 1
+popd &> /dev/null || exit 1
