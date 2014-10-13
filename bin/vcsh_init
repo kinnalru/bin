@@ -1,6 +1,7 @@
 #!/bin/sh
 
 [ -z "$VCSH_BIN" ] && export VCSH_BIN=`which vcsh`
+[ -z "$VCSH_MERGE" ] && export VCSH_MERGE=`which vcsh_merge`
 
 REPO=$1
 DIR=$2
@@ -29,16 +30,15 @@ $VCSH_BIN $REPO config user.iam "$iam"
 
 $VCSH_BIN $REPO remote add origin $REPO_URL || exit 1
 $VCSH_BIN $REPO fetch origin || exit 1
-$VCSH_BIN $REPO branch --set-upstream-to=origin/master master || exit 1
 
 echo "  * adding $KEEPFILE"
 touch "$KEEPFILE" || exit 1
 
 $VCSH_BIN $REPO add "$KEEPFILE" || exit 1
 
-vcsh_merge "$REPO" "origin/master" "Initial"
-
-$VCSH_BIN $REPO merge "${BRANCH}" -m "Merged initial by $iam" || exit 1
+$VCSH_MERGE "$REPO" "origin/master" "Initial"
+$VCSH_BIN $REPO branch --set-upstream-to=origin/master master || exit 1
+$VCSH_BIN $REPO merge origin/master -m "Merged initial by $iam" || exit 1
 
 if [ ! -f $EXCLUDEFILE ]; then
 	echo "  * adding $EXCLUDEFILE"

@@ -2,6 +2,7 @@
 
 export VCSH_BIN=`export PATH="$PWD:$PATH"; which vcsh`
 export INIT_BIN=`export PATH="$PWD:$PATH"; which vcsh_init`
+export VCSH_MERGE=`export PATH="$PWD:$PATH"; which vcsh_merge`
 export SECURE_BIN=`export PATH="$PWD:$PATH"; which jsecure`
 
 if [ ! -f ~/.ssh/id_rsa ]; then
