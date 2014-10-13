@@ -1,11 +1,14 @@
 
 mkdir -p ~/.profile.d
 
-pushd ~/.profile.d &> /dev/null
+if [ -z "$JPROFILE_LOADED" ]; then
+	pushd ~/.profile.d &> /dev/null
 
-for x in `find -maxdepth 1 -name "*.sh"`; do
-	source "$x"
-done
+	for x in `find -maxdepth 1 -name "*.sh"`; do
+		source "$x"
+	done
+	export JPROFILE_LOADED=true
 
-popd &> /dev/null
+	popd &> /dev/null
+fi
 
