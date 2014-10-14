@@ -1,6 +1,7 @@
 {
 	"installed_packages":
 	[
+		"CMake",
 		"CTags",
 		"GitGutter",
 		"PackageResourceViewer",
@@ -8,6 +9,7 @@
 		"SideBarEnhancements",
 		"SideBarGit",
 		"SublimeGit",
+		"SublimeLinter-ruby",
 		"Vintageous"
 	]
 }
