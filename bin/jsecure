@@ -13,7 +13,7 @@ elif [ "$1" == "decrypt" ]; then
 		openssl enc -aes-256-cbc -a -d -in "$2" -out "$3"
 	fi
 else
-	echo "invalid command ${$1}"
+	echo "invalid command $1"
 	echo 1
 fi
 

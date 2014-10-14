@@ -1,0 +1,26 @@
+#!/bin/sh
+
+#store/restore private key
+
+[ -z "$EMAIL" ] && export EMAIL="$2"
+[ -z "$EMAIL" ] && export EMAIL="kinnalru@gmail.com"
+
+[ -z "$PRIVATE" ] && export PRIVATE="$3"
+[ -z "$PRIVATE" ] && export PRIVATE="-" #read from stdin
+
+
+if [ "$1" == "store" ]; then
+	jsecure encrypt ~/.ssh/id_rsa ~/.secure/s1.enc  || exit 1
+elif [ "$1" == "restore" ]; then
+	jsecure decrypt "${PRIVATE}" ~/.ssh/id_rsa  || exit 1
+	chmod 600 ~/.ssh/id_rsa || exit 1
+
+	ssh-keygen -y -f ~/.ssh/id_rsa > ~/.ssh/id_rsa.pub || exit 1
+	pub=`cat ~/.ssh/id_rsa.pub | head -n 1`" ${EMAIL}"
+	echo $pub > ~/.ssh/id_rsa.pub
+	chmod 600 ~/.ssh/id_rsa.pub || exit 1
+else
+	echo "invalid command $1"
+	exit 1
+fi
+
