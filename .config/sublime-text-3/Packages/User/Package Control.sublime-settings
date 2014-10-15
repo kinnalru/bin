@@ -1,6 +1,7 @@
 {
 	"installed_packages":
 	[
+		"BlockCursorEverywhere",
 		"CMake",
 		"CTags",
 		"GitGutter",
@@ -11,5 +12,9 @@
 		"SublimeGit",
 		"SublimeLinter-ruby",
 		"Vintageous"
+	],
+	"repositories":
+	[
+		"http://github.com/jlangston/BlockCursorEverywhere"
 	]
 }
