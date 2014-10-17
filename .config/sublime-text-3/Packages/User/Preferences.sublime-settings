@@ -4,13 +4,12 @@
 	"font_size": 12,
 	"ignored_packages":
 	[
-		"SyncedSideBar",
 		"Vintage"
 	],
+	"reveal-on-activate": true,
 	"tab_size": 2,
 	"theme": "default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintage_start_in_command_mode": true,
-	"vintage_use_clipboard": false,
-	"reveal-on-activate": true,
+	"vintage_use_clipboard": false
 }
