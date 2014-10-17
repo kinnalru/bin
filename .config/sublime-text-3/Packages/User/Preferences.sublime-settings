@@ -11,5 +11,6 @@
 	"theme": "default.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"vintage_start_in_command_mode": true,
-	"vintage_use_clipboard": false
+	"vintage_use_clipboard": false,
+	"reveal-on-activate": true,
 }

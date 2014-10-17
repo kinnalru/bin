@@ -8,10 +8,10 @@
 		"PackageResourceViewer",
 		"Ruby Slim",
 		"SCSS",
-		"SideBarEnhancements",
 		"SideBarGit",
 		"SublimeGit",
 		"SublimeLinter-ruby",
+		"SyncedSideBar",
 		"Vintageous"
 	],
 	"repositories":
