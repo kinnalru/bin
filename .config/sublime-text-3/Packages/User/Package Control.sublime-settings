@@ -2,6 +2,7 @@
 	"installed_packages":
 	[
 		"BlockCursorEverywhere",
+		"C++ Starting Kit",
 		"CMake",
 		"CTags",
 		"GitGutter",
