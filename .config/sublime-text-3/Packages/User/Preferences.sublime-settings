@@ -4,12 +4,7 @@
 	"font_size": 12,
 	"ignored_packages":
 	[
-		"RubyTest",
-		"SideBarGit",
 		"Vintage",
-		"SublimeLinter-ruby",
-		"SideBarEnhancements",
-		"Vintageous"
 	],
 	"reveal-on-activate": true,
 	"tab_size": 2,
