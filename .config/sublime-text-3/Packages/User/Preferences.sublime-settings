@@ -7,9 +7,10 @@
 		"Vintage"
 	],
 	"reveal-on-activate": true,
+	"detect_indentation": false,
 	"tab_size": 2,
-	"theme": "default.sublime-theme",
 	"translate_tabs_to_spaces": true,
+	"theme": "default.sublime-theme",
 	"vintage_start_in_command_mode": true,
 	"vintage_use_clipboard": false
 }
