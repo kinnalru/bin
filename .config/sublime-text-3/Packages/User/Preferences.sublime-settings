@@ -5,7 +5,8 @@
 	"font_size": 12,
 	"ignored_packages":
 	[
-		"Vintage"
+		"Vintage",
+		"FuzzyFileNav"
 	],
 	"reveal-on-activate": true,
 	"tab_size": 2,
