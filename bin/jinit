@@ -7,11 +7,13 @@ export PATH="$PWD:$PATH"
 KEY_URL="https://github.com/kinnalru/home_init/raw/master/.secure/s1.enc"
 REPO_URL="git@github.com:kinnalru/home_init.git"
 USER="kinnalru"
-EMAIL="kinnalru@gmail.com"
+export EMAIL="kinnalru@gmail.com"
 
 if [ ! -f ~/.ssh/id_rsa ]; then
 	echo "=== Initializing key"
+	echo " ** loading key from repo..."
 	file=`curl -sSL -u "${USER}" "${KEY_URL}"` || exit 1
+	echo " ** decrypting key..."
 	echo "$file" | jkey restore "${EMAIL}" "-" || exit 1
 fi
 
