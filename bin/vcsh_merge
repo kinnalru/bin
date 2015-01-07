@@ -1,0 +1,28 @@
+#!/bin/sh
+
+[ -z "$VCSH_BIN" ] && export VCSH_BIN=`which vcsh`
+
+REPO=$1
+BRANCH=$2
+COMMIT=$3
+
+IFS="
+"
+
+[ -z "$1" ] && echo "Usage: `basename $0` <repo>" && exit -1
+[ -z "$2" ] && BRANCH="origin/master"
+[ -z "$3" ] && COMMIT="Auto commit"
+
+pushd `$VCSH_BIN $REPO config core.worktree` &> /dev/null 
+
+for x in `${VCSH_BIN} $REPO ls-tree --name-only --full-tree -r "${BRANCH}"`; do
+	echo -n "  * adding $PWD/$x to repository"
+	$VCSH_BIN ${REPO} add "$PWD/$x" 2> /dev/null || echo -n " -SKIP-"
+	echo ""
+done
+
+iam=`${VCSH_BIN} home config user.iam`
+
+$VCSH_BIN $REPO commit -m "${COMMIT} by $iam" || exit 1
+
+popd &> /dev/null
