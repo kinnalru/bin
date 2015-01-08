@@ -1,5 +1,6 @@
 #!/bin/sh
 
+[ -z "$EMAIL" ] && export EMAIL="kinnalru@gmail.com"
 [ -z "$VCSH_BIN" ] && export VCSH_BIN=`which vcsh`
 [ -z "$VCSH_MERGE" ] && export VCSH_MERGE=`which vcsh_merge`
 
