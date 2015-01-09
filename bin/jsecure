@@ -3,19 +3,19 @@
 if [ "$2" == "-" ]; then
   IN=""
 else
-  IN="-in \"$2\""
+  IN="-in $2"
 fi
 
 if [ "$3" == "-" ]; then
   OUT=""
 else
-  OUT="-out \"$3\""
+  OUT="-out $3"
 fi
 
 if [ "$1" == "encrypt" ]; then
-	openssl enc -aes-256-cbc -a -salt $IN $OUT
+	openssl enc -aes-256-cbc -a -salt ${IN} ${OUT}
 elif [ "$1" == "decrypt" ]; then
-	openssl enc -aes-256-cbc -a -d $IN $OUT
+	openssl enc -aes-256-cbc -a -d ${IN} ${OUT}
 else
 	echo "invalid command $1"
 	echo 1
