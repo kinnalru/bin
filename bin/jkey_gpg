@@ -1,0 +1,22 @@
+#!/bin/sh
+
+#store/restore private key
+
+[ -z "$EMAIL" ] && export EMAIL="$2"
+[ -z "$EMAIL" ] && export EMAIL="kinnalru@gmail.com"
+
+[ -z "$PRIVATE" ] && export PRIVATE="$3"
+[ -z "$PRIVATE" ] && export PRIVATE="-" #read from stdin
+
+
+if [ "$1" == "store" ]; then
+        echo " ** storing gpg key..."
+	gpg --export-secret-key -a | jsecure encrypt - - > ~/.secure/s2.enc || exit 1
+elif [ "$1" == "restore" ]; then
+        echo " ** restoring gpg key..."
+	jsecure decrypt - - | gpg --import ~/.secure/tmp.key || exit 1
+else
+	echo "invalid command $1"
+	exit 1
+fi
+
