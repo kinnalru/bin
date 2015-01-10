@@ -6,7 +6,8 @@
 	"ignored_packages":
 	[
 		"Vintage",
-		"FuzzyFileNav"
+		"FuzzyFileNav",
+		"SideBarEnhancements"
 	],
 	"reveal-on-activate": true,
 	"tab_size": 2,
