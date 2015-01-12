@@ -3,7 +3,9 @@
 
 source $HOME/.profile
 
-eval `ssh-agent`
+#eval `ssh-agent`
+eval `gpg-agent --daemon --enable-ssh-support`
+
 sudo xhost +
 xhost +
 
