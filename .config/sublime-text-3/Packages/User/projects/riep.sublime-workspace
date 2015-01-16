@@ -1,0 +1,285 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"user",
+				"users"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 132.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2deb499853c4371624f5a07e27c334aa' + 'bf8c4e67d14fb0525ba4f89698a6d7e1'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/jerry/devel/iteq/riep"
+	],
+	"file_history":
+	[
+		"/home/jerry/.config/sublime-text-3/Packages/User/projects/riep.sublime-project",
+		"/home/jerry/crypted_devel/jerry/pscs/reader/main.c",
+		"/home/jerry/crypted_devel/jerry/pscs/reader/main.cpp",
+		"/home/jerry/devel/iteq/riep/app/assets/angular/charts/ratio_charts.js",
+		"/home/jerry/devel/iteq/riep/app/assets/angular/services/chart_service.js",
+		"/home/jerry/devel/iteq/riep/app/views/welcome/welcome.html.slim",
+		"/home/jerry/devel/iteq/riep/app/controllers/application_controller.rb",
+		"/home/jerry/devel/iteq/riep/app/views/layouts/application.html.slim",
+		"/home/jerry/devel/iteq/riep/app/controllers/oiv_controller.rb",
+		"/home/jerry/devel/iteq/riep/app/views/templates/reports/_menu.html.slim",
+		"/home/jerry/devel/iteq/riep/app/controllers/users_controller.rb",
+		"/home/jerry/devel/iteq/riep/Gemfile",
+		"/home/jerry/devel/iteq/riep/app/assets/angular/controllers/settings_ctrl.js",
+		"/home/jerry/devel/iteq/riep/app/models/oktmo.rb",
+		"/home/jerry/devel/iteq/riep/app/models/concerns/departmentable.rb",
+		"/home/jerry/devel/iteq/riep/app/models/user.rb",
+		"/home/jerry/devel/iteq/riep/app/views/shared/_profile.html.slim",
+		"/home/jerry/devel/iteq/riep/app/models/f2r.rb",
+		"/home/jerry/devel/iteq/riep/app/controllers/reports_controller.rb",
+		"/home/jerry/devel/iteq/riep/app/controllers/welcome_controller.rb",
+		"/home/jerry/devel/iteq/riep/config/routes.rb",
+		"/home/jerry/devel/iteq/riep/test/controllers/settings_controller_test.rb",
+		"/home/jerry/devel/iteq/riep/app/controllers/settings_controller.rb",
+		"/home/jerry/devel/iteq/riep/app/models/settings.rb",
+		"/home/jerry/devel/iteq/riep/test/models/service_test.rb",
+		"/home/jerry/devel/iteq/riep/config/secrets.yml",
+		"/home/jerry/devel/iteq/riep/sftp-config.json",
+		"/home/jerry/devel/iteq/riep/app/controllers/users/omniauth_callbacks_controller.rb",
+		"/home/jerry/devel/iteq/riep/app/assets/angular/charts/omsu_charts.js",
+		"/home/jerry/devel/iteq/riep/app/views/oktmo/not_assigned.json.jbuilder",
+		"/home/jerry/devel/iteq/riep/config/deploy.rb",
+		"/home/jerry/devel/iteq/riep/config/database.yml",
+		"/home/jerry/devel/iteq/riep/app/models/oiv.rb",
+		"/home/jerry/devel/iteq/riep/app/serializers/user_serializer.rb",
+		"/home/jerry/devel/iteq/riep/app/controllers/routing_controller.rb",
+		"/home/jerry/devel/iteq/riep/cache/GetRoutingTableByRegion_00_response.xml",
+		"/home/jerry/devel/iteq/riep/test/fixtures/routing_tables.yml",
+		"/home/jerry/devel/iteq/riep/app/models/routing_table.rb",
+		"/home/jerry/devel/iteq/riep/test/models/routing_table_test.rb",
+		"/home/jerry/devel/iteq/riep/vendor/assets/javascripts/angular-route.min.js",
+		"/home/jerry/devel/iteq/riep/app/helpers/application_helper.rb",
+		"/home/jerry/devel/iteq/riep/config/application.rb",
+		"/home/jerry/devel/iteq/riep/db/migrate/20141126093049_add_perms_to_users.rb",
+		"/home/jerry/devel/iteq/riep/public/assets/fontawesome-webfont-ed307a637d846ea838236dc41d944ceb.svg",
+		"/home/jerry/devel/iteq/riep/lib/route_service_wsdl/wsdl",
+		"/home/jerry/devel/iteq/riep/app/models/reports.rb",
+		"/home/jerry/devel/iteq/riep/Capfile",
+		"/home/jerry/devel/iteq/riep/test/fixtures/report_oktmos.yml",
+		"/home/jerry/devel/iteq/riep/README.rdoc",
+		"/home/jerry/devel/iteq/riep/Rakefile",
+		"/home/jerry/.sylpheed-2.0/tmp/tmpmsg-0x11f4e80.txt",
+		"/home/jerry/.config/sublime-text-3/Packages/User/Preferences.sublime-settings"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"проценты",
+			").show()",
+			"#chart-gmp",
+			"root",
+			"ball"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "riep.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"_men",
+				"app/views/templates/reports/_menu.html.slim"
+			],
+			[
+				"gem",
+				"Gemfile"
+			],
+			[
+				"settinctr",
+				"app/assets/angular/controllers/settings_ctrl.js"
+			],
+			[
+				"omni",
+				"app/controllers/users/omniauth_callbacks_controller.rb"
+			],
+			[
+				"departm",
+				"app/models/concerns/departmentable.rb"
+			],
+			[
+				"user.",
+				"app/models/user.rb"
+			],
+			[
+				"usercon",
+				"app/controllers/users_controller.rb"
+			],
+			[
+				"applicahtml",
+				"app/views/layouts/application.html.slim"
+			],
+			[
+				"applio",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"welco",
+				"app/views/welcome/welcome.html.slim"
+			],
+			[
+				"reportcontr",
+				"app/controllers/reports_controller.rb"
+			],
+			[
+				"chartser",
+				"app/assets/angular/services/chart_service.js"
+			],
+			[
+				"route",
+				"config/routes.rb"
+			],
+			[
+				"repocontr",
+				"app/controllers/reports_controller.rb"
+			],
+			[
+				"f2r",
+				"app/models/f2r.rb"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"vintage":
+		{
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 242.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

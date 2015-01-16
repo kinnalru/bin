@@ -1,0 +1,13 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "/home/jerry/devel/housekeeper"
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/home/jerry/devel/iteq/opendata"
+		}
+	]
+}
