@@ -11,6 +11,22 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "/home/jerry/devel/iteq/riep/Gemfile",
+			"settings":
+			{
+				"buffer_size": 2337,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/jerry/devel/iteq/riep/app/assets/stylesheets/application.css.scss",
+			"settings":
+			{
+				"buffer_size": 808,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -44,14 +60,22 @@
 	],
 	"file_history":
 	[
+		"/home/jerry/devel/iteq/riep/app/views/layouts/application.html.slim",
+		"/home/jerry/devel/iteq/riep/tmp/cache/assets/development/sass/70fdead22443d31e562feafba952853612cbb195/application.css.scssc",
+		"/home/jerry/devel/iteq/riep/tmp/cache/assets/development/sass/c62ed55f428671cde34bdf116e7f92a73d2b6c52/application.css.scssc",
+		"/home/jerry/devel/iteq/riep/public/assets/application-7ca3e51a8dc44fba047870ab67c9d3ec.js.gz",
+		"/home/jerry/devel/iteq/riep/public/assets/application-984fea53f08d2889550c89e8c635329f.js.gz",
+		"/home/jerry/devel/iteq/riep/app/assets/javascripts/application.js",
+		"/home/jerry/devel/iteq/riep/app/assets/stylesheets/application.css.scss",
+		"/home/jerry/devel/iteq/riep/app/helpers/application_helper.rb",
+		"/home/jerry/devel/iteq/riep/config/application.rb",
+		"/home/jerry/devel/iteq/riep/app/controllers/application_controller.rb",
 		"/home/jerry/.config/sublime-text-3/Packages/User/projects/riep.sublime-project",
 		"/home/jerry/crypted_devel/jerry/pscs/reader/main.c",
 		"/home/jerry/crypted_devel/jerry/pscs/reader/main.cpp",
 		"/home/jerry/devel/iteq/riep/app/assets/angular/charts/ratio_charts.js",
 		"/home/jerry/devel/iteq/riep/app/assets/angular/services/chart_service.js",
 		"/home/jerry/devel/iteq/riep/app/views/welcome/welcome.html.slim",
-		"/home/jerry/devel/iteq/riep/app/controllers/application_controller.rb",
-		"/home/jerry/devel/iteq/riep/app/views/layouts/application.html.slim",
 		"/home/jerry/devel/iteq/riep/app/controllers/oiv_controller.rb",
 		"/home/jerry/devel/iteq/riep/app/views/templates/reports/_menu.html.slim",
 		"/home/jerry/devel/iteq/riep/app/controllers/users_controller.rb",
@@ -84,8 +108,6 @@
 		"/home/jerry/devel/iteq/riep/app/models/routing_table.rb",
 		"/home/jerry/devel/iteq/riep/test/models/routing_table_test.rb",
 		"/home/jerry/devel/iteq/riep/vendor/assets/javascripts/angular-route.min.js",
-		"/home/jerry/devel/iteq/riep/app/helpers/application_helper.rb",
-		"/home/jerry/devel/iteq/riep/config/application.rb",
 		"/home/jerry/devel/iteq/riep/db/migrate/20141126093049_add_perms_to_users.rb",
 		"/home/jerry/devel/iteq/riep/public/assets/fontawesome-webfont-ed307a637d846ea838236dc41d944ceb.svg",
 		"/home/jerry/devel/iteq/riep/lib/route_service_wsdl/wsdl",
@@ -99,7 +121,7 @@
 	],
 	"find":
 	{
-		"height": 26.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
@@ -136,8 +158,91 @@
 	"groups":
 	[
 		{
+			"selected": 0,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "/home/jerry/devel/iteq/riep/Gemfile",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2337,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1175,
+								1175
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Ruby/Ruby.tmLanguage",
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 0
+							}
+						},
+						"translation.x": -0.0,
+						"translation.y": 542.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/jerry/devel/iteq/riep/app/assets/stylesheets/application.css.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 808,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								323,
+								323
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"vintage":
+							{
+								"action": null,
+								"action_count": "",
+								"mode": "mode_normal",
+								"motion": null,
+								"motion_count": "",
+								"must_capture_register_name": false,
+								"partial_sequence": "",
+								"register": "\"",
+								"sequence": "",
+								"xpos": 1
+							}
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -188,12 +293,16 @@
 		"selected_items":
 		[
 			[
-				"_men",
-				"app/views/templates/reports/_menu.html.slim"
+				"applica.s",
+				"app/assets/stylesheets/application.css.scss"
 			],
 			[
 				"gem",
 				"Gemfile"
+			],
+			[
+				"_men",
+				"app/views/templates/reports/_menu.html.slim"
 			],
 			[
 				"settinctr",
