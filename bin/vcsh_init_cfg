@@ -4,4 +4,4 @@ REPO=$1
 DIR=$2
 REPO_URL=$3
 
-vcsh_init cfg "" git@bitbucket.org:jerry_ru/cfg.git
+vcsh_init cfg "" git@bitbucket.org:jerry_ru/init-cfg.git

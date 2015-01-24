@@ -1,0 +1,7 @@
+#!/bin/sh
+
+REPO=$1
+DIR=$2
+REPO_URL=$3
+
+vcsh_init kde "" git@bitbucket.org:jerry_ru/init-kde.git
