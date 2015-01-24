@@ -13,7 +13,10 @@ IFS="
 [ -z "$2" ] && BRANCH="origin/master"
 [ -z "$3" ] && COMMIT="Auto commit"
 
+$VCSH_BIN ${REPO} conflicts && echo " !! There are conflicts in repo $REPO !! " && exit 1
+
 pushd `$VCSH_BIN $REPO config core.worktree` &> /dev/null 
+
 
 for x in `${VCSH_BIN} $REPO ls-tree --name-only --full-tree -r "${BRANCH}"`; do
 	echo -n "  * adding $PWD/$x to repository"
@@ -21,8 +24,11 @@ for x in `${VCSH_BIN} $REPO ls-tree --name-only --full-tree -r "${BRANCH}"`; do
 	echo ""
 done
 
+$VCSH_BIN ${REPO} conflicts && echo " !! There are conflicts in repo $REPO !! " && exit 1
+
 iam=`${VCSH_BIN} home config user.iam`
 
 $VCSH_BIN $REPO commit -m "${COMMIT} by $iam" || exit 1
 
 popd &> /dev/null
+

@@ -3,7 +3,8 @@
 
 #for gpg-agent(with ssh-agent emulation) no ssh-add needed
 
+vcsh home fetch
+
+vcsh home conflicts && echo " !! There are conflicts in repo home !! " && echo 1
 vcsh home commit -am "Auto commit `vcsh home config user.iam`"
-vcsh_merge home "origin/master"
-vcsh home pull
-vcsh home push
+vcsh_merge home "origin/master" && vcsh home pull && vcsh home push
