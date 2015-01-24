@@ -14,7 +14,7 @@ if [ "$1" == "store" ]; then
 	gpg --export-secret-key -a | jsecure encrypt - - > ~/.secure/s2.enc || exit 1
 elif [ "$1" == "restore" ]; then
         echo " ** restoring gpg key..."
-	jsecure decrypt - - | gpg --import ~/.secure/tmp.key || exit 1
+	jsecure decrypt - - | gpg --import || exit 1
 else
 	echo "invalid command $1"
 	exit 1

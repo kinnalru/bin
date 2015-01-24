@@ -1,5 +1,5 @@
 # for ssh-agent only
-#ssh-add -l | grep -e "`ssh-keygen -lf ~/.ssh/id_rsa.pub | sed s/.pub//`" || ssh-add
+#ssh-add -l | grep -e "`ssh-keygen -lf ~/.ssh/id_rsa.pub | sed s/.pub//`" || ssh-add < /dev/null
 
 #for gpg-agent(with ssh-agent emulation) no ssh-add needed
 
